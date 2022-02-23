@@ -1,13 +1,289 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* CSS RESET */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --blue: hsla(213, 77%, 50%, .75);
+  --red: 	hsla(355, 90%, 52%, .75);
+  --green: 	hsla(115, 67%, 60%, .75);
 }
+
+body {
+  min-height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #c0ffee;
+  font-size: clamp(12px, 2.5vw, 16px);
+}
+
+/* Remove default margin */ 
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+form,
+input {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor:  pointer;
+  transition: filter .2s ease-in-out;
+}
+
+button:hover {
+  filter: brightness(0.75);
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* Utility */
+
+/* Flex */
+
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.jst-center {
+  justify-content: center;
+}
+
+.jst-start {
+  justify-content: flex-start;
+}
+
+.jst-sb {
+  justify-content: space-between;
+}
+
+.jst-self-end {
+  justify-self: flex-end;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.gap-1 {
+  gap: 1rem;
+}
+
+/* Size and Space */
+
+.tall {
+  height: 60vh;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+/* Text */
+
+.text-danger {
+  color: var(--red);
+}
+
+.text-ok {
+  color: var(--green);
+}
+
+.text-heavy {
+  font-weight: 600;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-error {
+  color: var(--red);
+}
+
+/* Buttons */
+
+.btn {
+  border: none;
+  background-color: transparent;
+  border-radius: 8px;
+  padding: 0.5rem;
+  font-weight: 600;
+  min-width: 5rem;
+}
+
+.darken {
+  filter: brightness(.5);
+}
+
+.btn-confirm {
+  background-color: var(--green);
+}
+
+.btn-edit {
+  background-color: var(--blue);
+}
+
+.btn-cancel {
+  background-color: var(--red);
+}
+
+/* Containers */
+
+.container {
+  margin-inline: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px 6px 1px hsla(0, 0%, 0%, .5);
+}
+
+/* Modal */
+
+.ReactModal__Overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ReactModal__Content {
+  border-radius: 18px !important;
+  box-shadow: 1px 1px 10px 1px hsla(0, 0%, 0%, 0.25);
+  width: 35rem;
+  height: fit-content;
+  min-height: 15rem;
+  position: relative !important;
+  padding: 0;
+  margin: 0;
+}
+
+/* Positioning */
+
+.abs-top-right {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+}
+
+/* Forms */
+
+form {
+  height: fit-content;
+  min-height: 15rem;
+  width: 30rem;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+label {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  padding: 0.25rem;
+  border-radius: 8px;
+  border: 1px solid hsla(0, 0%, 0%, .5);
+}
+
