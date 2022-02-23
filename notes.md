@@ -80,3 +80,4 @@
 
 1. I used Create React App's eslint defaults which were good enough, but in larger projects where there are more things going on, I would normally customize it. I generally use this eslint config: https://github.com/wesbos/eslint-config-wesbos
 
+.
